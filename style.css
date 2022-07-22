@@ -1,0 +1,16 @@
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+	justify-content: center;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+}
+
+.cell {
+	background-color: black;
+}
