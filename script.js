@@ -1,12 +1,16 @@
 const MAX_GRID_SIZE = 500;
 let PEN_COLOR = "black";
 let RAINBOW_MODE = false;
+let LBUTTON_CLICKED = false;
 
 function getRandomValue(max) {
 	return Math.floor(Math.random() * max);
 }
 
 function getBackgroundColor(random) {
+	if (!LBUTTON_CLICKED) {
+		return;
+	}
 	if (RAINBOW_MODE) {
 		return `rgb(${getRandomValue(256)}, ${getRandomValue(
 			256
@@ -93,4 +97,12 @@ changeButton.addEventListener("click", () => {
 generateGrid(64);
 addEventListeners();
 
-document.querySelector('.date').innerHTML = new Date().getFullYear();
+document.querySelector(".date").innerHTML = new Date().getFullYear();
+
+window.addEventListener("mousedown", () => {
+	LBUTTON_CLICKED = true;
+});
+
+window.addEventListener("mouseup", () => {
+	LBUTTON_CLICKED = false;
+});
